@@ -1,0 +1,113 @@
+{
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:vue-scoped-css/base"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "globals": {
+    "defineProps": "readonly",
+    "defineEmits": "readonly"
+  },
+  "plugins": [
+    "vue"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "import/extensions": [
+      ".js",
+      ".jsx",
+      ".ts",
+      ".tsx"
+    ]
+  },
+  "rules": {
+    "no-console": "off",
+    "no-continue": "off",
+    "no-restricted-syntax": "off",
+    "no-plusplus": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "guard-for-in": "off",
+
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "import/first": "off", // https://github.com/vuejs/vue-eslint-parser/issues/58
+    // "@typescript-eslint/no-explicit-any": "off",
+    // "@typescript-eslint/explicit-module-boundary-types": "off",
+    "vue/first-attribute-linebreak": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/singleline-html-element-content-newline": "off",
+
+    // "@typescript-eslint/no-unused-vars": [
+    //   "error",
+    //   {
+    //     "argsIgnorePattern": "^_",
+    //     "varsIgnorePattern": "^_"
+    //   }
+    // ],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "no-use-before-define": "off",
+    // "@typescript-eslint/no-use-before-define": "off",
+    // "@typescript-eslint/ban-ts-comment": "off",
+    // "@typescript-eslint/ban-types": "off",
+    // "class-methods-use-this": "off" // 因为AxiosCancel必须实例化而能静态化所以加的规则，如果有办法解决可以取消
+
+    "vue/html-self-closing": [
+      "error",
+      {
+        "html": {
+          "void": "always",
+          "normal": "never",
+          "component": "always"
+        },
+        "svg": "always",
+        "math": "always"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.vue"
+      ],
+      "rules": {
+        "vue/component-name-in-template-casing": [
+          2,
+          "kebab-case"
+        ],
+        "vue/require-default-prop": 0,
+        "vue/multi-word-component-names": 0,
+        "vue/no-reserved-props": 0,
+        "vue/no-v-html": 0,
+        "vue-scoped-css/enforce-style-type": [
+          "error",
+          {
+            "allows": [
+              "scoped"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
