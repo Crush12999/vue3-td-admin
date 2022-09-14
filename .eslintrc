@@ -40,7 +40,6 @@
     "no-param-reassign": "off",
     "no-shadow": "off",
     "guard-for-in": "off",
-
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": "off",
@@ -51,7 +50,6 @@
     "vue/first-attribute-linebreak": "off",
     "vue/max-attributes-per-line": "off",
     "vue/singleline-html-element-content-newline": "off",
-
     // "@typescript-eslint/no-unused-vars": [
     //   "error",
     //   {
@@ -71,13 +69,12 @@
     // "@typescript-eslint/ban-ts-comment": "off",
     // "@typescript-eslint/ban-types": "off",
     // "class-methods-use-this": "off" // 因为AxiosCancel必须实例化而能静态化所以加的规则，如果有办法解决可以取消
-
     "vue/html-self-closing": [
       "error",
       {
         "html": {
           "void": "always",
-          "normal": "never",
+          "normal": "always",
           "component": "always"
         },
         "svg": "always",
