@@ -1,8 +1,8 @@
 {
   "extends": [
-    "plugin:prettier/recommended",
     "plugin:vue/vue3-recommended",
-    "plugin:vue-scoped-css/base"
+    "plugin:vue-scoped-css/base",
+    "plugin:prettier/recommended"
   ],
   "env": {
     "browser": true,
@@ -33,7 +33,36 @@
     ]
   },
   "rules": {
-    "no-console": "off",
+    "eqeqeq": [
+      "error",
+      "smart"
+    ], // 强制使用全等进行比较
+    "dot-location": [
+      "error",
+      "property"
+    ], // 要求对象的点要跟属性同一行
+    "array-element-newline": [
+      "error",
+      "consistent"
+    ], // 数组元素要一致的换行或者不换行
+    "block-spacing": "error", // 强制函数/循环等块级作用域中的花括号内前后有一个空格（对象除外）
+    "comma-spacing": "error", // 要求在逗号后面加个空格，禁止在逗号前面加一个空格
+    "comma-style": "error", // 要求逗号放在数组元素、对象属性或变量声明之后，且在同一行
+    "func-call-spacing": "error", // 禁止函数名和括号之间有个空格
+    "function-paren-newline": "error", // 强制函数括号内的参数一致换行或一致不换行
+    "key-spacing": "error", // 强制对象键值冒号后面有一个空格
+    "new-cap": "error", // 要求构造函数首字母大写
+    "no-multiple-empty-lines": "error", // 限制最多出现两个空行
+    "no-trailing-spaces": "error", // 禁止在空行使用空白字符
+    "no-whitespace-before-property": "error", // 禁止属性前有空白，如console. log(obj["a"])，log前面的空白有问题
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ], // 强制对象/解构赋值/import等花括号前后有空格
+    "semi-spacing": "error", // 强制分号后面有空格，如for (let i = 0; i < 20; i++)
+    "space-before-blocks": "error", // 强制块（for循环/if/函数等）前面有一个空格，如for(...){}是错的，花括号前面要空格：for(...) {}
+    "rest-spread-spacing": "error", // 扩展运算符...和表达式之间不允许有空格，如... re1错误，应该是...re1
+    // "no-console": "off",
     "no-continue": "off",
     "no-restricted-syntax": "off",
     "no-plusplus": "off",
@@ -45,18 +74,9 @@
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "import/first": "off", // https://github.com/vuejs/vue-eslint-parser/issues/58
-    // "@typescript-eslint/no-explicit-any": "off",
-    // "@typescript-eslint/explicit-module-boundary-types": "off",
     "vue/first-attribute-linebreak": "off",
     "vue/max-attributes-per-line": "off",
     "vue/singleline-html-element-content-newline": "off",
-    // "@typescript-eslint/no-unused-vars": [
-    //   "error",
-    //   {
-    //     "argsIgnorePattern": "^_",
-    //     "varsIgnorePattern": "^_"
-    //   }
-    // ],
     "no-unused-vars": [
       "error",
       {
@@ -64,23 +84,20 @@
         "varsIgnorePattern": "^_"
       }
     ],
-    "no-use-before-define": "off",
-    // "@typescript-eslint/no-use-before-define": "off",
-    // "@typescript-eslint/ban-ts-comment": "off",
-    // "@typescript-eslint/ban-types": "off",
-    // "class-methods-use-this": "off" // 因为AxiosCancel必须实例化而能静态化所以加的规则，如果有办法解决可以取消
-    "vue/html-self-closing": [
-      "error",
-      {
-        "html": {
-          "void": "always",
-          "normal": "always",
-          "component": "always"
-        },
-        "svg": "always",
-        "math": "always"
-      }
-    ]
+    "no-use-before-define": "off"
+    // "vue/html-self-closing": [
+    //   "error",
+    //   {
+    //     "html": {
+    //       "void": "always",
+    //       "normal": "always",
+    //       "component": "always"
+    //     },
+    //     "svg": "always",
+    //     "math": "always"
+    //   }
+    // ]
+    // "vue/html-self-closing": "off"
   },
   "overrides": [
     {

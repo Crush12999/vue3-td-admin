@@ -1,21 +1,42 @@
 <template>
   <t-space class="login-container">
-    <t-form class="login-form" :label-width="0">
+    <t-form
+      class="login-form"
+      :label-width="0"
+      :data="loginForm"
+      :rules="loginRules"
+    >
       <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
-      <t-form-item>
-        <t-input size="large" placeholder="请输入账户名" name="username" type="text">
+      <t-form-item name="username">
+        <t-input
+          v-model="loginForm.username"
+          size="large"
+          placeholder="请输入账户名"
+          type="text"
+        >
           <template #prefix-icon>
-            <t-icon size="large" name="user" />
+            <span class="svg-container">
+              <svg-icon icon="user"></svg-icon>
+            </span>
+            <!-- <svg-icon icon="https://res.lgdsunday.club/user.svg"></svg-icon> -->
+            <!-- <t-icon size="large" name="user" /> -->
           </template>
         </t-input>
       </t-form-item>
       <!-- password -->
-      <t-form-item>
-        <t-input size="large" type="password" placeholder="请输入密码">
+      <t-form-item name="password">
+        <t-input
+          v-model="loginForm.password"
+          size="large"
+          type="password"
+          placeholder="请输入密码"
+        >
           <template #prefix-icon>
-            <t-icon size="large" name="lock-on" />
+            <span class="svg-container">
+              <svg-icon icon="password"></svg-icon>
+            </span>
           </template>
         </t-input>
       </t-form-item>
@@ -29,7 +50,28 @@
 </template>
 
 <script setup>
-import {} from 'vue';
+import { ref } from 'vue';
+import { validatePassword } from './rules';
+
+const loginForm = ref({
+  username: 'super-admin',
+  password: '123456',
+});
+// 验证规则
+const loginRules = ref({
+  username: [
+    {
+      require: true,
+      message: '用户名为必填项',
+    },
+  ],
+  password: [
+    {
+      require: true,
+      validate: validatePassword(),
+    },
+  ],
+});
 </script>
 
 <style lang="scss" scoped>
@@ -51,6 +93,13 @@ $cursor: #fff;
     padding: 160px 35px 0;
     margin: 0 auto;
     overflow: hidden;
+  }
+
+  .svg-container {
+    padding: 6px 5px 6px 5px;
+    color: $dark_gray;
+    vertical-align: middle;
+    display: inline-block;
   }
 
   .title-container {

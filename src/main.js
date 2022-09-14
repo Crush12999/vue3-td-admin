@@ -8,5 +8,9 @@ import TDesign from 'tdesign-vue-next';
 import 'tdesign-vue-next/es/style/index.css';
 import '@/styles/index.scss';
 
+// 导入 svgIcon
+import SvgIcon from '@/components/SvgIcon/index.vue';
+
 const app = createApp(App);
+app.component('SvgIcon', SvgIcon);
 app.use(router).use(store).use(TDesign).mount('#app');

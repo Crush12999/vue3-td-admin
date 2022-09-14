@@ -1,7 +1,7 @@
 import { loadEnv } from 'vite';
 import createVuePlugin from '@vitejs/plugin-vue';
 // import vue from "@vitejs/plugin-vue";
-
+import { svgBuilder } from './src/plugins/svgBuilder';
 import path from 'path';
 
 const CWD = process.cwd();
@@ -35,6 +35,7 @@ export default ({ mode }) => {
       createVuePlugin({
         jsx: true,
       }),
+      svgBuilder('./src/icons/svg/'),
     ],
 
     server: {
